@@ -1,0 +1,26 @@
+html(lang='en')
+    head
+        meta(charset='utf-8')
+        link(rel="stylesheet", href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" 
+            integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous")
+        title='Lista de productos - PUG'
+    body
+        h2(class='text-primary m-3 me-auto text-center') Vista de Productos
+        if prod.length > 0
+            div(class='table-responsive p-3')
+                table(class='table table-dark')
+                    tr 
+                        th(class='text-center') ID
+                        th(class='text-center') Nombre 
+                        th(class='text-center') Precio
+                        th(class='text-center') URL 
+                    each producto in prod
+                        tr 
+                            td(class='text-center text-light')= producto.id
+                            td(class='text-center text-light')= producto.title 
+                            td(class='text-center text-light')= producto.price
+                            td(class='text-center text-light')= producto.thumbnail
+        else 
+            h3(class='alert alert-warning m-5') No se encontraron datos.
+        a(href="./")
+            button(class='btn btn-danger m-5') Volver
